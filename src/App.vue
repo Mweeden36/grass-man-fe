@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <SocialBar/>
     <NavBar/>
     <router-view/>
   </div>
@@ -7,22 +8,28 @@
 
 <script>
 import NavBar from '@/components/NavBar';
+import SocialBar from '@/components/SocialBar';
 
 export default {
   name: 'App',
   components: {
+    SocialBar,
     NavBar,
   },
 };
 </script>
 
-<style>
+<style lang="scss">
+body {
+  margin: 0;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  > div {
+    padding: 0px 20px;
+  }
 }
 </style>

@@ -8,3 +8,16 @@
     </nav>
   </div>
 </template>
+
+<style lang="scss" scoped>
+  .nav-bar {
+    background: red;
+    height: 40px;
+    nav {
+      height: 100%;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+</style>
