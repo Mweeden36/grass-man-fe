@@ -80,7 +80,7 @@ export default {
         margin-bottom: 5px;
       }
       .about-container {
-        background: $light-blue;
+        border: 1px solid $green;
         padding: 1px 20px 20px;
         p {
           color: $blue;

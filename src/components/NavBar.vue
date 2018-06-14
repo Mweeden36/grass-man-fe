@@ -48,7 +48,7 @@ export default {
       font-size: 1.8em;
       font-family: Muli;
       font-weight: 700;
-      color: $yellow;
+      color: white;
     }
     a {
       text-decoration: none;

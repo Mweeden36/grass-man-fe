@@ -2,21 +2,21 @@
   <div class="social-bar">
     <ul>
       <li class="facebook">
-        <FacebookIcon/>
+        <FacebookIcon v-on:click="window.open(facebookUrl, '_blank')"/>
+      </li>
       <li class="twitter">
-        <TwitterIcon/>
-      <li class="linkedin">
-        <LinkedinIcon/>
+        <TwitterIcon v-on:click="window.open(twitterUrl, '_blank')"/>
+      </li>
       <li class="mail">
-        <MailIcon/>
+        <MailIcon v-on:click="window.open('mailto:' + emailAddress, '_top')"/>
         <span>
           {{emailAddress}}
         </span>
       </li>
       <li class="phone">
-        <PhoneIcon/>
+        <PhoneIcon v-on:click="window.open('tel:' + rawPhoneNumber, '_top')"/>
         <span>
-          {{phoneNumber}}
+          {{prettyPhoneNumber}}
         </span>
       </li>
     </ul>
@@ -39,6 +39,7 @@ export default {
   data() {
     return {
       ...config,
+      window,
     };
   },
 };
@@ -46,7 +47,7 @@ export default {
 
 <style lang="scss" scoped>
   .social-bar {
-    padding: 5px 20px !important;
+    padding: 20px 20px !important;
     ul {
       padding: 0px;
       margin: 0px;
@@ -68,7 +69,7 @@ export default {
       > span {
         vertical-align: super;
       }
-      > svg, > span {
+      > svg {
         cursor: pointer;
       }
     }
