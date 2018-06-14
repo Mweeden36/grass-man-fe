@@ -7,10 +7,10 @@
       <span>Home</span>
       <ChevronRightIcon/>
     </router-link>
-    <router-link to="/shop">
+    <!-- <router-link to="/shop">
       <span>Shop</span>
       <ChevronRightIcon/>
-    </router-link>
+    </router-link> -->
     <router-link to="/contact">
       <span>Contact</span>
       <ChevronRightIcon/>
@@ -37,7 +37,6 @@ export default {
   @import url('//fonts.googleapis.com/css?family=Muli:300,400,600,700&amp;lang=en');
   @import './src/styles/variables.scss';
   .nav-bar {
-    box-shadow: 2px 1px 2px $dark-green;
     background-color: $green;
     height: 90px;
     display: flex;
@@ -49,18 +48,25 @@ export default {
       font-size: 1.8em;
       font-family: Muli;
       font-weight: 700;
-      color: $lightest-blue;
+      color: $yellow;
     }
     a {
       text-decoration: none;
       padding: 0px 10px;
       font-size: 1.3em;
-      color: $lightest-blue;
+      color: $light-blue;
+      &:hover {
+        //TODO: Fade-in
+        // color: $green-brown;
+        color: white;
+      }
       &.router-link-active {
         span {
           text-decoration: underline;
+          color: white;
         }
         svg {
+          //TODO: Animate
           transform: rotate(90deg);
         }
       }

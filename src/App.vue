@@ -23,7 +23,7 @@ export default {
 @import './src/styles/variables.scss';
 body {
   margin: 0;
-  color: $dark-green;
+  color: $green-brown;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
