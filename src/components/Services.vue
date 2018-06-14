@@ -1,29 +1,25 @@
 <template>
-  <div class="services">
+  <div class="services bot-pad">
+    <PageBanner pageName="Services"/>
     <h2>Services</h2>
   </div>
 </template>
 
 <script>
+import PageBanner from '@/components/PageBanner';
+
 export default {
   name: 'Services',
+  components: {
+    PageBanner,
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+@import './src/styles/variables.scss';
+
+.services {
 }
 </style>

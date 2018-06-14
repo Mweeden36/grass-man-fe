@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello bot-pad">
     <div class="jumbotron">
       <img src="@/assets/main-image.jpg">
       <div class="hero">
@@ -35,7 +35,6 @@ export default {
   @import './src/styles/variables.scss';
 
   .hello {
-    padding: 0px 0px 30px !important;
     .jumbotron {
       overflow: hidden;
       width: 100%;
@@ -78,11 +77,13 @@ export default {
       h2 {
         color: $blue;
         margin-bottom: 5px;
+        padding: 0px 20px;
       }
       .about-container {
         border: 1px solid $green;
         padding: 1px 20px;
         box-shadow: 1px 2px 2px $green;
+        border-radius: 50px;
         p {
           color: $blue;
         }

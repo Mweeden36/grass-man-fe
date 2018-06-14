@@ -31,6 +31,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   > div {
     padding: 0px 20px;
+    &.bot-pad {
+      padding: 0px 0px 30px !important;
+    }
   }
 }
 </style>
