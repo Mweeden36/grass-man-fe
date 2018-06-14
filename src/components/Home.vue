@@ -35,7 +35,7 @@ export default {
   @import './src/styles/variables.scss';
 
   .hello {
-    padding: 0px !important;
+    padding: 0px 0px 30px !important;
     .jumbotron {
       overflow: hidden;
       width: 100%;
@@ -81,7 +81,8 @@ export default {
       }
       .about-container {
         border: 1px solid $green;
-        padding: 1px 20px 20px;
+        padding: 1px 20px;
+        box-shadow: 1px 2px 2px $green;
         p {
           color: $blue;
         }
