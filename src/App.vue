@@ -20,14 +20,15 @@ export default {
 </script>
 
 <style lang="scss">
+@import './src/styles/variables.scss';
 body {
   margin: 0;
+  color: $dark-green;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
   > div {
     padding: 0px 20px;
   }
