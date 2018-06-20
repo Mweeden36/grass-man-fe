@@ -80,10 +80,7 @@ export default {
         padding: 0px 20px;
       }
       .about-container {
-        border: 1px solid $green;
         padding: 1px 20px;
-        box-shadow: 1px 2px 2px $green;
-        border-radius: 50px;
         p {
           color: $blue;
         }

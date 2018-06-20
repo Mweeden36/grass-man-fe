@@ -29,6 +29,19 @@ body {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  .smallcaps {
+    font-variant: small-caps;
+  }
+  .tight-padding {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+  .black-text {
+    color: black;
+  }
+  p {
+    margin: 0px;
+  }
   > div {
     padding: 0px 20px;
     &.bot-pad {
