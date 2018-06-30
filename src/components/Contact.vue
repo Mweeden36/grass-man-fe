@@ -2,14 +2,11 @@
   <div class="contact bot-pad">
     <PageBanner pageName="Contact"/>
     <div class="tight-padding contact-blurb">
-      <h1>Contact Us</h1>
-      <p>{{contactBlurb}}</p>
     </div>
     <ContactForm/>
     <div class="subheader-text tight-padding">
-      <h3>Give Your Property the Best Posssible Look</h3>
-      <p class="smallcaps subhead">Property Maintenance in {{location}}</p>
-      <p>{{contactBlurb}}</p>
+      <h3>Other ways to contact us:</h3>
+      <p class="smallcaps subhead">There are plenty! Pick the one that works best for you!</p>
     </div>
     <div class="contact-type-list tight-padding">
       <div class="contact-type">

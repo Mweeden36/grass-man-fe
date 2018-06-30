@@ -1,6 +1,8 @@
 <template>
   <div class="tight-padding">
     <form id="contact-form" @submit="checkForm">
+      <h1>Contact Us</h1>
+      <p class="contact-blurb">{{contactBlurb}}</p>
       <p v-if="errors.length">
         <span>Please correct the following error(s):</span>
         <ul>
@@ -18,7 +20,9 @@
         v-model="message" id="message-input"
         placeholder="A message to The Grass Man!">
       </textarea>
-      <button>Submit</button>
+      <div class="submit-container">
+        <button>Submit</button>
+      </div>
     </form>
   </div>
 </template>
@@ -70,12 +74,52 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import './src/styles/variables.scss';
+
 #contact-form {
-  width: 50%;
+  width: 75%;
   margin: 0 auto;
+  background-color: $blue;
+  color: $light-blue;
+  margin-top: 25px;
+  padding: 25px;
+  h1 {
+    margin: 0px 0px 5px;
+  }
+  .contact-blurb {
+    padding-bottom: 15px;
+  }
   label, input, textarea {
     display: block;
     width: 100%;
+  }
+  label {
+    font-size: 1.1em;
+    line-height: 1.2em;
+  }
+  input {
+    height: 1.1em;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+  }
+  textarea {
+    height: 75px;
+  }
+  .submit-container {
+    text-align: right;
+    padding-top: 20px;
+    button {
+      height: 35px;
+      background: none;
+      outline: none;
+      color: $light-blue;
+      border: 2px solid $light-blue;
+      border-radius: 20px;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
   }
 }
 </style>
