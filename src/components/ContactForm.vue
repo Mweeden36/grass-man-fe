@@ -9,13 +9,13 @@
           <li v-for="error in errors" v-bind:key="error">{{error}}</li>
         </ul>
       </p>
-      <label for="name-input">Name *</label>
+      <label for="name-input" class="required">Name</label>
       <input v-model="name" id="name-input" placeholder="Galileo Humpkins">
-      <label for="email-input">Email Address *</label>
+      <label for="email-input" class="required">Email Address</label>
       <input v-model="email" id="email-input" placeholder="someone@example.com">
       <label for="phone-input">Phone Number</label>
       <input v-model="phone" id="phone-input" placeholder="(123) 555-1234">
-      <label for="message-input">Message: *</label>
+      <label for="message-input" class="required">Message</label>
       <textarea
         v-model="message" id="message-input"
         placeholder="A message to The Grass Man!">
@@ -96,6 +96,10 @@ export default {
   label {
     font-size: 1.1em;
     line-height: 1.2em;
+    &.required:after {
+      content: "*";
+      color: $yellow;
+    }
   }
   input {
     height: 1.1em;
@@ -104,6 +108,8 @@ export default {
   }
   textarea {
     height: 75px;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-size: 1.1em;
   }
   .submit-container {
     text-align: right;
