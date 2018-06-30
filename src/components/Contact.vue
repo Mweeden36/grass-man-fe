@@ -1,6 +1,11 @@
 <template>
   <div class="contact bot-pad">
     <PageBanner pageName="Contact"/>
+    <div class="tight-padding contact-blurb">
+      <h1>Contact Us</h1>
+      <p>{{contactBlurb}}</p>
+    </div>
+    <ContactForm/>
     <div class="subheader-text tight-padding">
       <h3>Give Your Property the Best Posssible Look</h3>
       <p class="smallcaps subhead">Property Maintenance in {{location}}</p>
@@ -33,6 +38,7 @@
 
 <script>
 import PageBanner from '@/components/PageBanner';
+import ContactForm from '@/components/ContactForm';
 import { UsersIcon, MailIcon, PhoneIcon, FacebookIcon, TwitterIcon } from 'vue-feather-icons';
 import config from '../assets/config.json';
 
@@ -45,6 +51,7 @@ export default {
     MailIcon,
     FacebookIcon,
     TwitterIcon,
+    ContactForm,
   },
   data() {
     return {
