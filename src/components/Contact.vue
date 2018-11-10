@@ -6,24 +6,25 @@
     <ContactForm/>
     <div class="subheader-text tight-padding">
       <h3>Other ways to contact us:</h3>
-      <p class="smallcaps subhead">There are plenty! Pick the one that works best for you!</p>
+      <p class="subhead">There are plenty! Pick the one that works best for you!</p>
     </div>
     <div class="contact-type-list tight-padding">
       <div class="contact-type">
-        <PhoneIcon/>
+        <Icon type="ios-call" :size="25" />
         <h3>Phone</h3>
         <a class="value" v-bind:href="telephoneLink" target="_top">{{prettyPhoneNumber}}</a>
       </div>
       <div class="contact-type">
-        <MailIcon/>
+        <Icon type="ios-mail-outline" :size="25" />
         <h3>Email</h3>
         <a class="value" v-bind:href="emailLink" target="_top">{{emailAddress}}</a>
       </div>
       <div class="contact-type">
         <UsersIcon/>
         <h3>Social</h3>
-        <a v-bind:href="facebookUrl" class="black-text" target="_blank">
-          <FacebookIcon/>
+        <a v-bind:href="facebookUrl" class="facebook-logo" target="_blank">
+          <br/>
+          <Icon type="logo-facebook" :size="25" />
         </a>
         <!-- <a v-bind:href="test" class="black-text" target="_blank">
           <TwitterIcon/>
@@ -34,21 +35,18 @@
 </template>
 
 <script>
+import { Card, Icon } from 'iview';
 import PageBanner from '@/components/PageBanner';
 import ContactForm from '@/components/ContactForm';
-import { UsersIcon, MailIcon, PhoneIcon, FacebookIcon, TwitterIcon } from 'vue-feather-icons';
 import config from '../assets/config.json';
 
 export default {
   name: 'Contact',
   components: {
-    PageBanner,
-    PhoneIcon,
-    UsersIcon,
-    MailIcon,
-    FacebookIcon,
-    TwitterIcon,
+    Card,
     ContactForm,
+    Icon,
+    PageBanner,
   },
   data() {
     return {
@@ -68,7 +66,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+@import './src/styles/_variables.scss';
 .contact {
+  color: $blue;
   .subheader-text {
     padding: 20px 0px;
     h3 {
@@ -85,19 +85,14 @@ export default {
       display: inline-block;
       flex: 1 0 75px;
       height: 125px;
+      h3 {
+        display: inline-block;
+      }
       .value {
         display: block;
       }
-      svg {
-        vertical-align: -3px;
-      }
-      svg, h3 {
-        display: inline-block;
-      }
-      a {
-        > svg {
-          display: block;
-        }
+      .facebook-logo {
+        color: $facebook-blue;
       }
     }
   }
