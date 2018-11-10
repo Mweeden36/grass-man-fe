@@ -34,7 +34,9 @@
       Services
     </menu-item>
   </Menu>
-  <h1>Grass Man Lawn Maintenance</h1>
+  <router-link class="logo-link" to="/home">
+    <h1>Grass Man Lawn Maintenance</h1>
+  </router-link>
 </div>
 </template>
 
@@ -74,11 +76,12 @@ export default {
     display: flex;
     align-items: center;
     color: #FFF;
-    h1 {
+    .logo-link {
       display: inline-block;
       flex: 1 0 auto;
       text-align: end;
       padding-right: 20px;
+      color: #FFF;
     }
     .nav-bar {
       background-color: $green;
