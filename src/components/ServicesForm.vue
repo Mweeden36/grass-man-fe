@@ -127,7 +127,6 @@ export default {
     handleSubmit(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {
-          console.log(this.formValidate);
           // console.log('TODO: Call API.');
           this.$Message.success('Success!');
         }
@@ -136,7 +135,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import './src/styles/_variables.scss';
-</style>
