@@ -1,41 +1,41 @@
 <template>
 <div class="nav-bar__wrap no-pad">
-  <nav class="nav-bar">
-    <div class="logo-container">
-      <span>The Grass Man Lawn Maintenance</span>
-    </div>
-    <router-link to="/home" class="nav-button">
-      <span>Home</span>
-      <ChevronRightIcon/>
-    </router-link>
-    <!-- <router-link to="/shop">
-      <span>Shop</span>
-      <ChevronRightIcon/>
-    </router-link> -->
-    <router-link to="/contact" class="nav-button">
-      <span>Contact</span>
-      <ChevronRightIcon/>
-    </router-link>
-    <router-link to="/services" class="nav-button">
-      <span>Services</span>
-      <ChevronRightIcon/>
-    </router-link>
-    <MenuIcon class="nav-button mobile-menu-button" @click="openMobileMenu" />
-  </nav>
+  <Menu class="nav-bar" mode="horizontal" theme="dark" :active-name="activeName">
+    <menu-item class="nav-button mobile" name="mobile">
+      <Icon type="ios-menu" @click="showMobileMenu" />
+    </menu-item>
+    <menu-item to="/home" class="nav-button" name="Home">
+      <Icon type="ios-home" />
+      Home
+    </menu-item>
+    <menu-item to="/contact" class="nav-button" name="Contact">
+      Contact
+    </menu-item>
+    <menu-item to="/services" class="nav-button" name="Services">
+      Services
+    </menu-item>
+  </Menu>
+  <h1>Grass Man Lawn Maintenance</h1>
 </div>
 </template>
 
 <script>
-import { ChevronRightIcon, MenuIcon } from 'vue-feather-icons';
+import { Icon, Menu, MenuItem } from 'iview';
 
 export default {
   name: 'NavBar',
   components: {
-    ChevronRightIcon,
-    MenuIcon,
+    Icon,
+    Menu,
+    MenuItem,
+  },
+  computed: {
+    activeName() {
+      return this.$route.name;
+    },
   },
   methods: {
-    openMobileMenu() {
+    showMobileMenu() {
       this.$emit('openmobilemenu');
     },
   },
@@ -46,53 +46,36 @@ export default {
   @import url('//fonts.googleapis.com/css?family=Muli:300,400,600,700&amp;lang=en');
   @import './src/styles/_variables.scss';
   @import './src/styles/_mixins.scss';
-  .nav-bar {
+  .nav-bar__wrap {
     background-color: $green;
     height: 90px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding: 0px 20px;
-    .logo-container {
+    color: #FFF;
+    h1 {
+      display: inline-block;
       flex: 1 0 auto;
-      font-size: 1.8em;
-      font-family: Muli;
-      font-weight: 700;
-      color: white;
+      text-align: end;
+      padding-right: 20px;
     }
-    .nav-button {
-      text-decoration: none;
-      padding: 0px 10px;
-      font-size: 1.3em;
-      color: $light-blue;
-      cursor: pointer;
-      @include tablet {
-        display: none;
-      }
-      &.mobile-menu-button {
-        display: none;
-        @include tablet {
-          display: inline-block;
-          flex: 0 0 24px;
+    .nav-bar {
+      background-color: $green;
+      display: inline-block;
+      height: 100%;
+      .nav-button {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        &.mobile {
+          display: none;
+          font-size: 2em;
+          @include phone {
+            display: flex;
+          }
         }
-      }
-      &:hover {
-        //TODO: Fade-in
-        // color: $green-brown;
-        color: white;
-      }
-      &.router-link-active {
-        span {
-          text-decoration: underline;
-          color: white;
+        @include phone {
+          display: none;
         }
-        svg {
-          //TODO: Animate
-          transform: rotate(90deg);
-        }
-      }
-      svg {
-        vertical-align: top;
       }
     }
   }

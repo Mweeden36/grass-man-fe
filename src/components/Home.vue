@@ -4,7 +4,7 @@
       dots="none"
       arrow="never"
       class="jumbotron"
-      height="300px">
+      :height="300">
       <CarouselItem>
         <div class="hero">
           <h1>No Job too Big or too Small</h1>
