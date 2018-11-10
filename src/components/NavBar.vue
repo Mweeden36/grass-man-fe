@@ -1,9 +1,10 @@
 <template>
+<div class="nav-bar__wrap no-pad">
   <nav class="nav-bar">
     <div class="logo-container">
       <span>The Grass Man Lawn Maintenance</span>
     </div>
-    <router-link to="/home">
+    <router-link to="/home" class="nav-button">
       <span>Home</span>
       <ChevronRightIcon/>
     </router-link>
@@ -11,24 +12,32 @@
       <span>Shop</span>
       <ChevronRightIcon/>
     </router-link> -->
-    <router-link to="/contact">
+    <router-link to="/contact" class="nav-button">
       <span>Contact</span>
       <ChevronRightIcon/>
     </router-link>
-    <router-link to="/services">
+    <router-link to="/services" class="nav-button">
       <span>Services</span>
       <ChevronRightIcon/>
     </router-link>
+    <MenuIcon class="nav-button mobile-menu-button" @click="openMobileMenu" />
   </nav>
+</div>
 </template>
 
 <script>
-import { ChevronRightIcon } from 'vue-feather-icons';
+import { ChevronRightIcon, MenuIcon } from 'vue-feather-icons';
 
 export default {
   name: 'NavBar',
   components: {
     ChevronRightIcon,
+    MenuIcon,
+  },
+  methods: {
+    openMobileMenu() {
+      this.$emit('openmobilemenu');
+    },
   },
 };
 </script>
@@ -36,6 +45,7 @@ export default {
 <style lang="scss" scoped>
   @import url('//fonts.googleapis.com/css?family=Muli:300,400,600,700&amp;lang=en');
   @import './src/styles/_variables.scss';
+  @import './src/styles/_mixins.scss';
   .nav-bar {
     background-color: $green;
     height: 90px;
@@ -50,11 +60,22 @@ export default {
       font-weight: 700;
       color: white;
     }
-    a {
+    .nav-button {
       text-decoration: none;
       padding: 0px 10px;
       font-size: 1.3em;
       color: $light-blue;
+      cursor: pointer;
+      @include tablet {
+        display: none;
+      }
+      &.mobile-menu-button {
+        display: none;
+        @include tablet {
+          display: inline-block;
+          flex: 0 0 24px;
+        }
+      }
       &:hover {
         //TODO: Fade-in
         // color: $green-brown;
