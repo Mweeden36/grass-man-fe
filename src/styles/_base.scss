@@ -14,6 +14,10 @@ body {
   .tight-padding {
     padding-left: 20%;
     padding-right: 20%;
+    @include narrow-phone {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
   }
   .black-text {
     color: black;
