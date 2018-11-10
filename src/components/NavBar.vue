@@ -1,9 +1,28 @@
 <template>
 <div class="nav-bar__wrap no-pad">
   <Menu class="nav-bar" mode="horizontal" theme="dark" :active-name="activeName">
-    <menu-item class="nav-button mobile" name="mobile">
-      <Icon type="ios-menu" @click="showMobileMenu" />
-    </menu-item>
+    <Dropdown class="nav-button mobile" name="mobile" trigger="click">
+      <a href="javascript:void(0)">
+          <Icon type="ios-menu"></Icon>
+      </a>
+      <DropdownMenu class="mobile-drop" slot="list">
+        <router-link to="/home">
+          <dropdown-item class="mobile-drop-item" name="Home">
+            Home
+          </dropdown-item>
+        </router-link>
+        <router-link to="/contact">
+          <dropdown-item class="mobile-drop-item" name="Contact">
+            Contact
+          </dropdown-item>
+        </router-link>
+        <router-link to="/services">
+          <dropdown-item class="mobile-drop-item" name="Services">
+            Services
+          </dropdown-item>
+        </router-link>
+      </DropdownMenu>
+    </Dropdown>
     <menu-item to="/home" class="nav-button" name="Home">
       <Icon type="ios-home" />
       Home
@@ -20,11 +39,14 @@
 </template>
 
 <script>
-import { Icon, Menu, MenuItem } from 'iview';
+import { Dropdown, DropdownItem, DropdownMenu, Icon, Menu, MenuItem } from 'iview';
 
 export default {
   name: 'NavBar',
   components: {
+    Dropdown,
+    DropdownItem,
+    DropdownMenu,
     Icon,
     Menu,
     MenuItem,
@@ -62,6 +84,17 @@ export default {
       background-color: $green;
       display: inline-block;
       height: 100%;
+      .ivu-dropdown-rel {
+        .ivu-icon {
+          color: #FFF;
+        }
+      }
+      .mobile-drop {
+        .mobile-drop-item {
+          font-size: 0.8em !important;
+          padding: 10px 20px;
+        }
+      }
       .nav-button {
         height: 100%;
         display: flex;

@@ -2,7 +2,6 @@
   <div id="app">
     <SocialBar/>
     <NavBar @openmobilemenu="openMobileMenu"/>
-    <MobileNavMenu v-if="mobileNavOpen" />
     <router-view/>
   </div>
 </template>
@@ -18,16 +17,6 @@ export default {
     SocialBar,
     NavBar,
     MobileNavMenu,
-  },
-  methods: {
-    openMobileMenu() {
-      this.mobileNavOpen = true;
-    },
-  },
-  data() {
-    return {
-      mobileNavOpen: false,
-    };
   },
 };
 </script>
