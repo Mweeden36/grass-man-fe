@@ -1,38 +1,34 @@
 <template>
-<div class="tight-padding contact-form-card__wrap">
-  <Card class="contact-form-card">
-    <h1 slot="title">Contact Us</h1>
-    <h3 slot="title" class="contact-blurb">{{contactBlurb}}</h3>
-    <Form id="contact-form" :model="formValidate" :rules="rules" >
-      <FormItem label="Name" prop="name">
-        <Input v-model="formValidate.name"
-          :autofocus="true"
-          placeholder="Galileo Humpkins" />
-      </FormItem>
-      <FormItem label="E-Mail" prop="email">
-        <Input v-model="formValidate.email"
-          placeholder="someone@example.com" />
-      </FormItem>
-      <FormItem label="City" prop="city">
-        <Input v-model="formValidate.city"
-          placeholder="Rock Tavern" />
-      </FormItem>
-      <FormItem label="Phone Number" prop="phone">
-        <Input v-model="formValidate.phone" id="phone-input" placeholder="(123) 555-1234" />
-      </FormItem>
-      <FormItem label="Message" prop="message">
-        <Input
-          type="textarea"
-          :autosize="true"
-          :spellcheck="true"
-          v-model="formValidate.message"
-          placeholder="A message to The Grass Man!"/>
-      </FormItem>
-      <FormItem>
-        <Button type="primary" @click="handleSubmit('formValidate')">Submit</button>
-      </FormItem>
-    </Form>
-  </Card>
+<div class="contact-form-card__wrap">
+  <Form id="contact-form" :model="formValidate" :rules="rules" ref="formValidate" >
+    <FormItem label="Name" prop="name">
+      <Input v-model="formValidate.name"
+        :autofocus="true"
+        placeholder="Galileo Humpkins" />
+    </FormItem>
+    <FormItem label="E-Mail" prop="email">
+      <Input v-model="formValidate.email"
+        placeholder="someone@example.com" />
+    </FormItem>
+    <FormItem label="City" prop="city">
+      <Input v-model="formValidate.city"
+        placeholder="Rock Tavern" />
+    </FormItem>
+    <FormItem label="Phone Number" prop="phone">
+      <Input v-model="formValidate.phone" id="phone-input" placeholder="(123) 555-1234" />
+    </FormItem>
+    <FormItem label="Message" prop="message">
+      <Input
+        type="textarea"
+        :autosize="true"
+        :spellcheck="true"
+        v-model="formValidate.message"
+        placeholder="A message to The Grass Man!"/>
+    </FormItem>
+    <FormItem>
+      <Button type="primary" @click="handleSubmit('formValidate')">Submit</button>
+    </FormItem>
+  </Form>
 </div>
 </template>
 
@@ -96,7 +92,7 @@ export default {
     };
   },
   methods: {
-    handleSubmit() {
+    handleSubmit(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {
           // console.log('TODO: Call API.');
@@ -113,13 +109,7 @@ export default {
 @import './src/styles/_mixins.scss';
 
 .contact-form-card__wrap {
-  width: 75%;
   margin: 0 auto;
-  margin-top: 25px;
-  padding: 25px;
-  @include tablet {
-    width: 100%;
-  }
   .contact-form-card {
     background-color: $light-blue;
     color: $blue;

@@ -10,7 +10,7 @@
           <h1>No Job too Big or too Small</h1>
           <h2>We Serve Better and Faster</h2>
           <router-link to="/services" class="button get-estimate">
-            <Button>
+            <Button ghost>
               Get a Free Estimate
             </Button>
           </router-link>

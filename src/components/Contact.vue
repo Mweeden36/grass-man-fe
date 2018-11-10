@@ -1,34 +1,38 @@
 <template>
   <div class="contact bot-pad">
     <PageBanner pageName="Contact"/>
-    <div class="tight-padding contact-blurb">
-    </div>
-    <ContactForm/>
-    <div class="subheader-text tight-padding">
-      <h3>Other ways to contact us:</h3>
-      <p class="subhead">There are plenty! Pick the one that works best for you!</p>
-    </div>
-    <div class="contact-type-list tight-padding">
-      <div class="contact-type">
-        <Icon type="ios-call" :size="25" />
-        <h3>Phone</h3>
-        <a class="value" v-bind:href="telephoneLink" target="_top">{{prettyPhoneNumber}}</a>
+    <div class="tight-padding">
+      <Card class="contact-form-card">
+        <h1 slot="title">Contact Us</h1>
+        <p class="contact-blurb">{{contactBlurb}}</p>
+        <br/>
+        <ContactForm/>
+      </Card>
+      <div class="subheader-text">
+        <h3>Other ways to contact us:</h3>
+        <p class="subhead">There are plenty! Pick the one that works best for you!</p>
       </div>
-      <div class="contact-type">
-        <Icon type="ios-mail-outline" :size="25" />
-        <h3>Email</h3>
-        <a class="value" v-bind:href="emailLink" target="_top">{{emailAddress}}</a>
-      </div>
-      <div class="contact-type">
-        <UsersIcon/>
-        <h3>Social</h3>
-        <a v-bind:href="facebookUrl" class="facebook-logo" target="_blank">
-          <br/>
-          <Icon type="logo-facebook" :size="25" />
-        </a>
-        <!-- <a v-bind:href="test" class="black-text" target="_blank">
-          <TwitterIcon/>
-        </a> -->
+      <div class="contact-type-list">
+        <div class="contact-type">
+          <Icon type="ios-call" :size="25" />
+          <h3>Phone</h3>
+          <a class="value" v-bind:href="telephoneLink" target="_top">{{prettyPhoneNumber}}</a>
+        </div>
+        <div class="contact-type">
+          <Icon type="ios-mail-outline" :size="25" />
+          <h3>Email</h3>
+          <a class="value" v-bind:href="emailLink" target="_top">{{emailAddress}}</a>
+        </div>
+        <div class="contact-type">
+          <h3>Social</h3>
+          <a v-bind:href="facebookUrl" class="facebook-logo" target="_blank">
+            <br/>
+            <Icon type="logo-facebook" :size="25" />
+          </a>
+          <!-- <a v-bind:href="test" class="black-text" target="_blank">
+            <TwitterIcon/>
+          </a> -->
+        </div>
       </div>
     </div>
   </div>
@@ -69,6 +73,10 @@ export default {
 @import './src/styles/_variables.scss';
 .contact {
   color: $blue;
+  .contact-form-card {
+    margin-top: 10px;
+    background-color: $light-blue;
+  }
   .subheader-text {
     padding: 20px 0px;
     h3 {
