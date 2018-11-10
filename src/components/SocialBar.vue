@@ -9,13 +9,13 @@
       </li>
       <li class="mail">
         <MailIcon v-on:click="window.open('mailto:' + emailAddress, '_top')"/>
-        <span>
+        <span class="email-text contact-detail">
           {{emailAddress}}
         </span>
       </li>
       <li class="phone">
         <PhoneIcon v-on:click="window.open('tel:' + rawPhoneNumber, '_top')"/>
-        <span>
+        <span class="phone-text contact-detail">
           {{prettyPhoneNumber}}
         </span>
       </li>
@@ -46,6 +46,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import './src/styles/_mixins.scss';
   .social-bar {
     padding: 20px 20px !important;
     ul {
@@ -68,6 +69,12 @@ export default {
       }
       > span {
         vertical-align: super;
+
+        &.contact-detail {
+          @include narrow-phone {
+            display: none;
+          }
+        }
       }
       > svg {
         cursor: pointer;

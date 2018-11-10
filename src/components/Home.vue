@@ -32,7 +32,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  @import './src/styles/variables.scss';
+  @import './src/styles/_variables.scss';
+  @import './src/styles/_mixins.scss';
 
   .hello {
     .jumbotron {
@@ -50,29 +51,51 @@ export default {
         position: absolute;
         top: 40%;
         padding-left: 20px;
+        @include tablet {
+          top: 25%;
+        }
         h1 {
           color: white;
           margin: 0px;
           font-weight: 700;
+
+          @include phone {
+            font-size: 1.2em;
+          }
+          @include narrow-phone {
+            display: none;
+          }
         }
         h2 {
           margin: 0px;
           color: $light-blue;
           font-weight: 500;
+
+          @include phone {
+            font-size: 1.0em;
+          }
+          @include narrow-phone {
+            display: none;
+          }
         }
         .button {
           display: inline-block;
-          margin: 20px 0px 0px;
           text-decoration: none;
           color: white;
           border-radius: 20px;
           padding: 10px 15px;
           border: 2px solid white;
+          @include desktop {
+            margin: 20px 0px 0px;
+          }
         }
       }
     }
     .about-wrapper {
-      width: 900px;
+      width: 60%;
+      @include tablet {
+        width: 80%;
+      }
       margin: 0px auto;
       h2 {
         color: $blue;

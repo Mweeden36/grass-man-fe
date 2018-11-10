@@ -18,7 +18,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-@import './src/styles/variables.scss';
+@import './src/styles/_variables.scss';
 
 .services {
 }

@@ -35,7 +35,7 @@ export default {
 
 <style lang="scss" scoped>
   @import url('//fonts.googleapis.com/css?family=Muli:300,400,600,700&amp;lang=en');
-  @import './src/styles/variables.scss';
+  @import './src/styles/_variables.scss';
   .nav-bar {
     background-color: $green;
     height: 90px;

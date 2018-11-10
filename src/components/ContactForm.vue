@@ -110,14 +110,14 @@ export default {
       };
     },
     submitForm() {
-      console.log('TODO: Call API.');
+      // console.log('TODO: Call API.');
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-@import './src/styles/variables.scss';
+@import './src/styles/_variables.scss';
 $font-size: 1.1em;
 
 #contact-form {

@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './src/styles/variables.scss';
+@import './src/styles/_variables.scss';
 
 .image-bar {
   background-image: url('../assets/alt-image.jpg');
