@@ -1,20 +1,37 @@
 <template>
   <div class="social-bar">
     <ul>
-      <li class="facebook">
-        <FacebookIcon v-on:click="window.open(facebookUrl, '_blank')"/>
+      <li
+        class="facebook"
+        @click="window.open(facebookUrl, '_blank')">
+        <Icon
+          type="logo-facebook"
+          :size="25" />
       </li>
-      <li class="twitter">
-        <TwitterIcon v-on:click="window.open(twitterUrl, '_blank')"/>
+      <li
+        class="twitter"
+        @click="window.open(twitterUrl, '_blank')">
+        <Icon
+          type="logo-twitter"
+          :size="25" />
       </li>
-      <li class="mail">
-        <MailIcon v-on:click="window.open('mailto:' + emailAddress, '_top')"/>
+      <li class="spacer" />
+      <li
+        class="mail"
+        @click="window.open('mailto:' + emailAddress, '_top')">
+        <Icon
+          type="ios-mail-outline"
+          :size="25" />
         <span class="email-text contact-detail">
           {{emailAddress}}
         </span>
       </li>
-      <li class="phone">
-        <PhoneIcon v-on:click="window.open('tel:' + rawPhoneNumber, '_top')"/>
+      <li
+        class="phone"
+        @click="window.open('tel:' + rawPhoneNumber, '_top')">
+        <Icon
+          type="ios-call-outline"
+          :size="25" />
         <span class="phone-text contact-detail">
           {{prettyPhoneNumber}}
         </span>
@@ -24,17 +41,13 @@
 </template>
 
 <script>
-import { FacebookIcon, TwitterIcon, LinkedinIcon, MailIcon, PhoneIcon } from 'vue-feather-icons';
+import { Icon } from 'iview';
 import config from '../assets/config.json';
 
 export default {
   name: 'SocialBar',
   components: {
-    FacebookIcon,
-    TwitterIcon,
-    LinkedinIcon,
-    MailIcon,
-    PhoneIcon,
+    Icon,
   },
   data() {
     return {
@@ -48,7 +61,7 @@ export default {
 <style lang="scss" scoped>
 @import './src/styles/_mixins.scss';
   .social-bar {
-    padding: 20px 20px !important;
+    padding: 10px 20px !important;
     ul {
       padding: 0px;
       margin: 0px;
@@ -60,16 +73,21 @@ export default {
       list-style-type: none;
       display: inline-block;
       padding: 0px 5px;
+      cursor: pointer;
       &:first-child {
         padding: 0px;
       }
-      &.mail {
+      &.spacer {
+        cursor: default;
         flex: 1 0 auto;
-        text-align: right;
+      }
+      &.facebook {
+        color: $facebook-blue;
+      }
+      &.twitter {
+        color: $twitter-blue;
       }
       > span {
-        vertical-align: super;
-
         &.contact-detail {
           @include narrow-phone {
             display: none;
