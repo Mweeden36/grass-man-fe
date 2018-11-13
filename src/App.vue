@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <SocialBar/>
-    <NavBar @openmobilemenu="openMobileMenu"/>
+    <NavBar/>
     <router-view/>
   </div>
 </template>
