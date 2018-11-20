@@ -35,6 +35,7 @@
 <script>
 import { Button, Card, Form, FormItem, Input } from 'iview';
 import config from '../assets/config.json';
+import axios from 'axios';
 
 export default {
   name: 'ContactForm',
@@ -93,9 +94,21 @@ export default {
   },
   methods: {
     handleSubmit(name) {
+      //axios.post('http://localhost:3000/estimateRequest');
+      const reqData = {
+        'message':  this.formValidate.message,
+        'name': this.formValidate.name,
+        'contactEmail':  this.formValidate.email,
+        'contactPhone': this.formValidate.phone,
+      }
+      axios.post('api/estimateRequest', reqData, { headers: { "content-type": "application/json" } });
       this.$refs[name].validate((valid) => {
         if (valid) {
-          // console.log('TODO: Call API.');
+          // TODO: Call API
+          console.log(this.formValidate.message);
+          //Need to get the right route, testing with hardcode
+          axios.post('api/estimateRequest', reqData, { headers: { "content-type": "application/x-www-form-urlencoded" } });
+          console.log("Sent maybe");
           this.$Message.success('Success!');
         }
       });
