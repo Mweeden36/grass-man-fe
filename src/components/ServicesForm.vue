@@ -48,6 +48,7 @@
 <script>
 import { Button, Checkbox, CheckboxGroup, DatePicker, Form, FormItem, Input, Option, Select } from 'iview';
 import { stateList } from '../assets/config.json';
+import axios from 'axios';
 
 export default {
   name: 'ServicesForm',
@@ -125,9 +126,21 @@ export default {
   },
   methods: {
     handleSubmit(name) {
+      const reqData = {
+        'services':  this.formValidate.services,
+        'name': this.formValidate.name,
+        'contactEmail':  this.formValidate.email,
+        'contactPhone': this.formValidate.phone,
+        'availability': this.formValidate.availability,
+        'address': this.formValidate.address,
+        'zip': this.formValidate.zip,
+        'state': this.formValidate.state,
+
+      }
       this.$refs[name].validate((valid) => {
         if (valid) {
           // console.log('TODO: Call API.');
+          axios.post('api/estimateRequest', reqData, { headers: { "content-type": "application/json" } });
           this.$Message.success('Success!');
         }
       });
